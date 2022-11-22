@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_explorer"
+            android:enabled="true"
+            android:icon="@drawable/ic_point_24"
+            android:title="@string/explorer"
+            app:cnb_iconColor="@color/white" />
+
+        <item
+            android:id="@+id/action_cart"
+            android:enabled="true"
+            android:icon="@drawable/ic_shopping_bag_24"
+            android:title="@string/cart"
+            app:cnb_iconColor="@color/white" />
+        <item
+            android:id="@+id/action_favourite"
+            android:enabled="true"
+            android:icon="@drawable/ic_white_favourite_border_24"
+            android:title="@string/favourite"
+            app:cnb_iconColor="@color/white" />
+        <item
+            android:id="@+id/action_account"
+            android:enabled="true"
+            android:icon="@drawable/ic_account_24"
+            android:title="@string/account"
+            app:cnb_iconColor="@color/white" />
+
+    </group>
+
+</menu>

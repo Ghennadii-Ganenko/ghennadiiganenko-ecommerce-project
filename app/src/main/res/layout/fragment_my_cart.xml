@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_smoke">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="40dp"
+            android:src="@drawable/back_layer"
+            android:contentDescription="@string/back_button" />
+
+        <TextView
+            android:id="@+id/add_address_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/location_button"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="9dp"
+            style="@style/TextViewStyle"
+            android:textColor="@color/dark_blue"
+            android:textSize="15sp"
+            android:text="@string/add_address" />
+
+        <ImageButton
+            android:id="@+id/location_button"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="44dp"
+            android:src="@drawable/location_layer"
+            android:contentDescription="@string/location_button"/>
+
+        <TextView
+            android:id="@+id/my_cart_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="44dp"
+            android:layout_marginStart="42dp"
+            style="@style/TextViewStyle"
+            android:textColor="@color/dark_blue"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:text="@string/my_cart"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/my_cart_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/my_cart_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="43dp"
+            app:cardCornerRadius="30dp"
+            android:backgroundTint="@color/dark_blue">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cart_devices_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginEnd="33dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_cart_device"
+                    android:scrollbars="none"
+                    android:overScrollMode="never"/>
+
+                <ImageView
+                    android:id="@+id/first_border_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    app:layout_constraintTop_toBottomOf="@id/cart_devices_recyclerview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/border_line"
+                    android:contentDescription="@string/border_line" />
+
+                <TextView
+                    android:id="@+id/total_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/first_border_line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="55dp"
+                    style="@style/TextViewStyle"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="@string/total"/>
+
+                <TextView
+                    android:id="@+id/total_price_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/first_border_line"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="35dp"
+                    style="@style/TextViewStyle"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="@string/_0_us" />
+
+                <TextView
+                    android:id="@+id/delivery_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/total_textview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="55dp"
+                    style="@style/TextViewStyle"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="@string/delivery"/>
+
+                <TextView
+                    android:id="@+id/delivery_price_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/total_price_textview"
+                    app:layout_constraintStart_toStartOf="@id/total_price_textview"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="35dp"
+                    style="@style/TextViewStyle"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="@string/free"/>
+                
+                <ImageView
+                    android:id="@+id/second_border_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    app:layout_constraintTop_toBottomOf="@id/delivery_textview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/border_line"
+                    android:contentDescription="@string/border_line"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/checkout_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/second_border_line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginBottom="38dp"
+                    android:layout_marginHorizontal="44dp"
+                    android:textAllCaps="false"
+                    style="@style/TextViewStyle"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:text="@string/checkout"
+                    android:background="@drawable/add_to_cart_button_selector"
+                    app:backgroundTint="@null" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

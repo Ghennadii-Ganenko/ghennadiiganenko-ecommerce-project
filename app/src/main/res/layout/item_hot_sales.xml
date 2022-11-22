@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="374dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/iphone_image"
+            android:scaleType="fitXY"
+            android:src="@drawable/rectangle_black" />
+
+
+        <ImageView
+            android:id="@+id/device_image"
+            android:layout_width="227dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/iphone_image"
+            android:layout_gravity="end"
+            android:scaleType="fitXY"
+            android:src="@drawable/iphone_image" />
+
+        <LinearLayout
+            android:layout_width="115dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="13dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/new_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/new_icon"
+                android:src="@drawable/new_icon_layer" />
+
+            <TextView
+                android:id="@+id/device_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/iphone_12"
+                android:lines="2"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/device_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/iphone12_description"
+                android:textColor="@color/white"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/action_buy"
+                android:layout_width="98dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="25dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/buy_now"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

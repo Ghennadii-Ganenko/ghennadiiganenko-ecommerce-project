@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@android:color/transparent"
+        android:layout_marginVertical="35dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/device_image_cardview"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:cardCornerRadius="10dp">
+
+            <ImageView
+                android:id="@+id/device_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/iphone_image"
+                android:contentDescription="@string/device_image" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/device_name_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/device_image_cardview"
+            app:layout_constraintEnd_toStartOf="@id/amount_in_cart_layout"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="5dp"
+            style="@style/TextViewStyle"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:lines="2"
+            android:ellipsize="end"
+            android:text="@string/galaxy_note_20_ultra"/>
+
+        <TextView
+            android:id="@+id/device_price_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/device_name_textview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/device_image_cardview"
+            app:layout_constraintEnd_toStartOf="@id/amount_in_cart_layout"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="5dp"
+            style="@style/TextViewStyle"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/orange"
+            android:lines="1"
+            android:ellipsize="end"
+            android:text="@string/_3000_00"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/amount_in_cart_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/delete_imagebutton"
+            android:layout_marginVertical="5dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:id="@+id/amount_textview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:lines="1"
+                style="@style/TextViewStyle"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:text="@string/_23"
+                android:gravity="center"
+                android:background="@drawable/amount_textview_background"/>
+
+            <ImageButton
+                android:id="@+id/reduce_imagebutton"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/reduce_button"
+                android:src="@drawable/ic_white_baseline_keyboard_arrow_up_24"
+                android:backgroundTint="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/add_imagebutton"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/add_button"
+                android:src="@drawable/ic_white_baseline_keyboard_arrow_down_24"
+                android:backgroundTint="@android:color/transparent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/delete_imagebutton"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="@string/delete_button"
+            android:src="@drawable/ic_outline_delete_24"
+            android:backgroundTint="@android:color/transparent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

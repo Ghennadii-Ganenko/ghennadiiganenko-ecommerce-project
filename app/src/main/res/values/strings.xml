@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">Ecommerce</string>
+    <string name="ecommerce_concept">Ecommerce \nConcept</string>
+    <string name="circle">circle</string>
+    <string name="zihuatanejo_gro">Zihuatanejo, Gro</string>
+    <string name="explorer">Explorer</string>
+    <string name="select_category">Select Category</string>
+    <string name="location_imageview">Location ImageView</string>
+    <string name="more_locations_imageview">More Locations Imageview</string>
+    <string name="view_all">view all</string>
+    <string name="categories">Categories</string>
+    <string name="filter_imageview">Filter ImageView</string>
+    <string name="phones">Phones</string>
+    <string name="books">Books</string>
+    <string name="health">Health</string>
+    <string name="computer">Computer</string>
+    <string name="extra">Extra</string>
+    <string name="search">Search</string>
+    <string name="qr_code_imageview">QR Code ImageView</string>
+    <string name="hot_sales">Hot sales</string>
+    <string name="see_more">see more</string>
+    <string name="cart">Cart</string>
+    <string name="favourite">Favourite</string>
+    <string name="account">Account</string>
+    <string name="iphone_image">Iphone Image</string>
+    <string name="new_icon">New Icon</string>
+    <string name="iphone_12">Iphone 12</string>
+    <string name="iphone12_description">Súper. Mega. Rápido.</string>
+    <string name="buy_now">Buy now!</string>
+    <string name="best_seller">Best Seller</string>
+    <string name="search_bar_icon">Search Bar Icon</string>
+    <string name="device_image">Device Image</string>
+    <string name="device_discount_price_example">$1,047</string>
+    <string name="device_actual_price_example"><strike>$1,500</strike></string>
+    <string name="device_name_example">Samsung Galaxy s20 Ultra</string>
+    <string name="filter_options">Filter options</string>
+    <string name="brand">Brand</string>
+    <string name="price">Price</string>
+    <string name="size">Size</string>
+    <string name="close_button">Close Button</string>
+    <string name="done_button">Done Button</string>
+    <string name="done">Done</string>
+    <string name="back_button">Back Button</string>
+    <string name="cart_button">Cart Button</string>
+    <string name="cpu_imageview">CPU ImageView</string>
+    <string name="ssd_imageview">SSD ImageView</string>
+    <string name="sd_imageview">SD ImageView</string>
+    <string name="favourite_button">Favourite Button</string>
+    <string name="product_details">Product Details</string>
+    <string name="galaxy_note_20_ultra">Galaxy Note 20 Ultra</string>
+    <string name="shop">Shop</string>
+    <string name="details">Details</string>
+    <string name="features">Features</string>
+    <string name="_256_gb">256 GB</string>
+    <string name="exynos_990">Exynos 990</string>
+    <string name="_108_12_mp">108 + 12 mp</string>
+    <string name="_8_gb">8 GB</string>
+    <string name="select_color_and_opacity">Select color and opacity</string>
+    <string name="_128_gb">128 GB</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="_1_500_00">$1,500.00</string>
+    <string name="add_address">Add address</string>
+    <string name="location_button">Location Button</string>
+    <string name="my_cart">My Cart</string>
+    <string name="total">Total</string>
+    <string name="_6_000_us">$6,000 us</string>
+    <string name="delivery">Delivery</string>
+    <string name="free">Free</string>
+    <string name="checkout">Checkout</string>
+    <string name="border_line">Border Line</string>
+    <string name="reduce_button">Reduce Button</string>
+    <string name="add_button">Add Button</string>
+    <string name="delete_button">Delete Button</string>
+    <string name="_23">23</string>
+    <string name="_3000_00">$3000.00</string>
+    <string name="_0_us">$0 us</string>
+
+    <string-array name="Brands">
+        <item>Samsung</item>
+        <item>Xiaomi</item>
+        <item>Iphone</item>
+        <item>Motorola</item>
+    </string-array>
+
+    <string-array name="Prices">
+        <item>$0 - $2000</item>
+        <item>$2000 - $4000</item>
+        <item>$4000 - $6000</item>
+        <item>$6000 - $8000</item>
+        <item>$8000 - $10000</item>
+    </string-array>
+
+    <string-array name="Sizes">
+        <item>4.5 to 5.5 inches</item>
+        <item>5.5 to 6.5 inches</item>
+        <item>6.5 to 7.5 inches</item>
+    </string-array>
+</resources>

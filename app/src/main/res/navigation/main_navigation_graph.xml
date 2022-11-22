@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/splashFragment">
+
+    <dialog
+        android:id="@+id/filterFragment"
+        android:name="com.ghennadiiganenko.android.ecommerce.fragments.FilterFragment"
+        android:label="FilterFragment"
+        tools:layout="@layout/fragment_filter"/>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.ghennadiiganenko.android.ecommerce.fragments.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/device_graph"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <navigation android:id="@+id/device_graph"
+        app:startDestination="@id/mainFragment">
+        <fragment
+            android:id="@+id/mainFragment"
+            android:name="com.ghennadiiganenko.android.ecommerce.fragments.MainFragment"
+            android:label="MainFragment"
+            tools:layout="@layout/fragment_main">
+            <action
+                android:id="@+id/action_mainFragment_to_filterFragment"
+                app:destination="@id/filterFragment" />
+            <action
+                android:id="@+id/action_mainFragment_to_productDetailsFragment"
+                app:destination="@id/productDetailsFragment" />
+            <action
+                android:id="@+id/action_mainFragment_to_myCartFragment"
+                app:destination="@id/myCartFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/productDetailsFragment"
+            android:name="com.ghennadiiganenko.android.ecommerce.fragments.ProductDetailsFragment"
+            android:label="ProductDetailsFragment"
+            tools:layout="@layout/fragment_product_details">
+            <action
+                android:id="@+id/action_productDetailsFragment_to_myCartFragment"
+                app:destination="@id/myCartFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/myCartFragment"
+            android:name="com.ghennadiiganenko.android.ecommerce.fragments.MyCartFragment"
+            android:label="MyCartFragment"
+            tools:layout="@layout/fragment_my_cart" />
+    </navigation>
+</navigation>
