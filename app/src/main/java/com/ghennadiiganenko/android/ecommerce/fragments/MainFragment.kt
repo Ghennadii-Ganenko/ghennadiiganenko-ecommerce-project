@@ -14,11 +14,12 @@ import com.ghennadiiganenko.android.ecommerce.domain.models.BestSellerDeviceEnti
 import com.ghennadiiganenko.android.ecommerce.viewmodels.MainViewModel
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import org.koin.androidx.navigation.koinNavGraphViewModel
+import kotlin.properties.Delegates
 
 
 class MainFragment : Fragment(R.layout.fragment_main), BestSellerAdapter.ItemClickListener {
 
-    private var binding: FragmentMainBinding? = null
+    private var binding: FragmentMainBinding by Delegates.notNull()
     private val viewModel by koinNavGraphViewModel<MainViewModel>(R.id.device_graph)
     private lateinit var bestSellerAdapter: BestSellerAdapter
     private lateinit var hotSalesAdapter: HotSalesAdapter
@@ -27,10 +28,10 @@ class MainFragment : Fragment(R.layout.fragment_main), BestSellerAdapter.ItemCli
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentMainBinding.inflate(inflater, container, false)
-        this.binding = binding
-
-        binding.bottomNavigationBar.setItemSelected(R.id.action_explorer, true)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+            .apply {
+                bottomNavigationBar.setItemSelected(R.id.action_explorer, true)
+            }
 
         return binding.root
     }
@@ -41,9 +42,8 @@ class MainFragment : Fragment(R.layout.fragment_main), BestSellerAdapter.ItemCli
         bestSellerAdapter = BestSellerAdapter(this,requireContext(), view)
         hotSalesAdapter = HotSalesAdapter(requireContext(), view)
 
-        binding?.bestSellerRecyclerview?.adapter = bestSellerAdapter
-        binding?.hotSalesRecyclerview?.adapter = hotSalesAdapter
-
+        binding.bestSellerRecyclerview.adapter = bestSellerAdapter
+        binding.hotSalesRecyclerview.adapter = hotSalesAdapter
 
         viewModel.devicesList.observe(viewLifecycleOwner) { result ->
             bestSellerAdapter.submitList(result.bestSeller)
@@ -52,7 +52,7 @@ class MainFragment : Fragment(R.layout.fragment_main), BestSellerAdapter.ItemCli
 
         viewModel.getDevicesList()
 
-        binding?.apply {
+        binding.apply {
             filterImagebutton.setOnClickListener {
                 navigateToFilterFragment()
             }
@@ -66,10 +66,9 @@ class MainFragment : Fragment(R.layout.fragment_main), BestSellerAdapter.ItemCli
             })
         }
 
-
         viewModel.devicesCount.observe(viewLifecycleOwner) {
             if(it != 0)
-                binding?.bottomNavigationBar?.showBadge(R.id.action_cart, it)
+                binding.bottomNavigationBar.showBadge(R.id.action_cart, it)
         }
     }
 

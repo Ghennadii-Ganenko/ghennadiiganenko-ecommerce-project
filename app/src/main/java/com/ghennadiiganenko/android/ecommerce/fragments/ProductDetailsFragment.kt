@@ -13,28 +13,26 @@ import com.ghennadiiganenko.android.ecommerce.R
 import com.ghennadiiganenko.android.ecommerce.TextHelper
 import com.ghennadiiganenko.android.ecommerce.adapter.DeviceImageAdapter
 import com.ghennadiiganenko.android.ecommerce.databinding.FragmentProductDetailsBinding
+import com.ghennadiiganenko.android.ecommerce.domain.models.DeviceDetailsEntity
 import com.ghennadiiganenko.android.ecommerce.viewmodels.MainViewModel
 import com.mig35.carousellayoutmanager.CarouselLayoutManager
 import com.mig35.carousellayoutmanager.CenterScrollListener
 import org.koin.androidx.navigation.koinNavGraphViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.properties.Delegates
 
 
 class ProductDetailsFragment :
     Fragment(R.layout.fragment_product_details) {
 
-    private var binding: FragmentProductDetailsBinding? = null
+    private var binding: FragmentProductDetailsBinding by Delegates.notNull()
     private val viewModel by koinNavGraphViewModel<MainViewModel>(R.id.device_graph)
     private lateinit var deviceDetailsAdapter: DeviceImageAdapter
-    private val textHelper = TextHelper()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentProductDetailsBinding.inflate(inflater, container, false)
-        this.binding = binding
+        binding = FragmentProductDetailsBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -47,7 +45,7 @@ class ProductDetailsFragment :
 
         deviceDetailsAdapter = DeviceImageAdapter(requireContext(), view)
 
-        binding?.deviceImageRecyclerview?.apply {
+        binding.deviceImageRecyclerview.apply {
             this.layoutManager = layoutManager
             setHasFixedSize(true)
             adapter = deviceDetailsAdapter
@@ -56,40 +54,37 @@ class ProductDetailsFragment :
 
         viewModel.deviceDetailsList.observe(viewLifecycleOwner) { result ->
             deviceDetailsAdapter.submitList(result.images)
-            binding?.apply {
-                cpuTextview.text = result.cpu
-                cameraTextview.text = result.camera
-                firstSdRadiobutton.text = textHelper.addGbText(result.capacity[0])
-                secondSdRadiobutton.text = textHelper.addGbText(result.capacity[1])
-                sdTextview.text = result.sd
-                ssdTextview.text = result.ssd
-                deviceName.text = result.title
-                productDetailsRatingbar.rating = result.rating.toFloat()
-                addToCartPriceTextview.text = textHelper.addDollarSign(result.price.toString())
-                firstColorRadiobutton.background.setTint(Color.parseColor(result.color[0]))
-                secondColorRadiobutton.background.setTint(Color.parseColor(result.color[1]))
-                favouriteButton.isChecked = result.isFavorites
-            }
+            inflateScreen(result)
         }
 
         viewModel.getDeviceDetailsList()
 
-        binding?.apply {
-            backButton.setOnClickListener {
-                navigateBack()
-            }
+        binding.apply {
+            backButton.setOnClickListener { navigateBack() }
+            addToCartButton.setOnClickListener { viewModel.addDevicesCount() }
+            cartButton.setOnClickListener { navigateToCartFragment() }
+        }
+    }
 
-            addToCartButton.setOnClickListener {
-                viewModel.addDevicesCount()
-            }
-
-            cartButton.setOnClickListener {
-                navigateToCartFragment()
-            }
+    private fun inflateScreen(result: DeviceDetailsEntity) {
+        binding.apply {
+            cpuTextview.text = result.cpu
+            cameraTextview.text = result.camera
+            firstSdRadiobutton.text = TextHelper.addGbText(result.capacity[0])
+            secondSdRadiobutton.text = TextHelper.addGbText(result.capacity[1])
+            sdTextview.text = result.sd
+            ssdTextview.text = result.ssd
+            deviceName.text = result.title
+            productDetailsRatingbar.rating = result.rating.toFloat()
+            addToCartPriceTextview.text = TextHelper.addDollarSign(result.price.toString())
+            firstColorRadiobutton.background.setTint(Color.parseColor(result.color[0]))
+            secondColorRadiobutton.background.setTint(Color.parseColor(result.color[1]))
+            favouriteButton.isChecked = result.isFavorites
         }
     }
 
     private fun navigateBack() = findNavController().popBackStack()
 
-    private fun navigateToCartFragment() = findNavController().navigate(R.id.action_productDetailsFragment_to_myCartFragment)
+    private fun navigateToCartFragment() =
+        findNavController().navigate(R.id.action_productDetailsFragment_to_myCartFragment)
 }

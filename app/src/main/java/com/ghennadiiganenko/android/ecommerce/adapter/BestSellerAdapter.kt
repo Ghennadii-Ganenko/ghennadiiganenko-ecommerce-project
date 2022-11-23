@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso
 class BestSellerAdapter(
     private val clickListener: ItemClickListener,
     private val context: Context,
-    private val view: View
+    private val view: View,
 ) : ListAdapter<BestSellerDeviceEntity, RecyclerView.ViewHolder>(ItemsDiffCallback()) {
 
     private class ItemsDiffCallback : DiffUtil.ItemCallback<BestSellerDeviceEntity>() {
@@ -32,8 +32,6 @@ class BestSellerAdapter(
             oldItem == newItem
     }
 
-    private val textHelper = TextHelper()
-
     inner class BestSellerViewHolder(private val binding: ItemBestSellerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: BestSellerDeviceEntity) {
@@ -46,12 +44,12 @@ class BestSellerAdapter(
 
                 deviceName.text = item.title
                 deviceActualPrice.text =
-                    textHelper.strikeText(
-                        textHelper.addDollarSign(
+                    TextHelper.strikeText(
+                        TextHelper.addDollarSign(
                             item.discount_price.toString()
                         )
                     )
-                deviceDiscountPrice.text = textHelper.addDollarSign(
+                deviceDiscountPrice.text = TextHelper.addDollarSign(
                     item.price_without_discount.toString()
                 )
                 Picasso.get().load(item.picture).into(deviceImage)

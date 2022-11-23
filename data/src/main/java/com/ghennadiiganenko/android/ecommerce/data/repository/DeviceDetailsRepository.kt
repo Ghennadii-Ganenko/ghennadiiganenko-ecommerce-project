@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.ghennadiiganenko.android.ecommerce.data.DeviceDetailsData
 import com.ghennadiiganenko.android.ecommerce.data.common.Common
-import com.ghennadiiganenko.android.ecommerce.data.interfaces.RetrofitService
+import com.ghennadiiganenko.android.ecommerce.data.interfaces.IRetrofitService
 import com.ghennadiiganenko.android.ecommerce.domain.mapper.DeviceDetailsMapper
 import com.ghennadiiganenko.android.ecommerce.domain.models.DeviceDetailsEntity
 import retrofit2.Call
@@ -12,7 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DeviceDetailsRepository {
-    private lateinit var mService: RetrofitService
+    private lateinit var mService: IRetrofitService
     val devicesList = MutableLiveData<DeviceDetailsEntity>()
 
     fun getDevicesDetailsList() {

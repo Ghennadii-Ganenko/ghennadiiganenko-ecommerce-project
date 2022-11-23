@@ -12,10 +12,11 @@ import com.ghennadiiganenko.android.ecommerce.adapter.CartDevicesAdapter
 import com.ghennadiiganenko.android.ecommerce.databinding.FragmentMyCartBinding
 import com.ghennadiiganenko.android.ecommerce.viewmodels.MainViewModel
 import org.koin.androidx.navigation.koinNavGraphViewModel
+import kotlin.properties.Delegates
 
 class MyCartFragment : Fragment(R.layout.fragment_my_cart) {
 
-    private var binding: FragmentMyCartBinding? = null
+    private var binding: FragmentMyCartBinding by Delegates.notNull()
     private val viewModel by koinNavGraphViewModel<MainViewModel>(R.id.device_graph)
     private lateinit var cartDevicesAdapter: CartDevicesAdapter
 
@@ -23,8 +24,7 @@ class MyCartFragment : Fragment(R.layout.fragment_my_cart) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentMyCartBinding.inflate(inflater, container, false)
-        this.binding = binding
+        binding = FragmentMyCartBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -36,16 +36,16 @@ class MyCartFragment : Fragment(R.layout.fragment_my_cart) {
         val devicesCount = viewModel.devicesCount.value
 
         cartDevicesAdapter = CartDevicesAdapter(requireContext(), view)
-        binding?.cartDevicesRecyclerview?.adapter = cartDevicesAdapter
+        binding.cartDevicesRecyclerview.adapter = cartDevicesAdapter
 
         viewModel.deviceDetailsList.observe(viewLifecycleOwner) { result ->
             cartDevicesAdapter.submitList(devicesCount?.let { MutableList(it) { result } })
 
             if (devicesCount != null)
-                binding?.totalPriceTextview?.text = "$${(result.price * devicesCount)} us"
+                binding.totalPriceTextview.text = "$${(result.price * devicesCount)} us"
         }
 
-        binding?.apply {
+        binding.apply {
             backButton.setOnClickListener {
                 navigateBack()
             }

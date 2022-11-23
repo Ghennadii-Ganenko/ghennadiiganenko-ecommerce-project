@@ -1,11 +1,9 @@
 package com.ghennadiiganenko.android.ecommerce.domain.mapper
 
 import com.ghennadiiganenko.android.ecommerce.domain.models.DeviceDetailsEntity
-import com.ghennadiiganenko.android.ecommerce.domain.models.DeviceEntity
-import com.ghennadiiganenko.android.ecommerce.domain.network.Device
 import com.ghennadiiganenko.android.ecommerce.domain.network.DeviceDetails
 
-class DeviceDetailsMapper : Mapper<DeviceDetails, DeviceDetailsEntity>  {
+class DeviceDetailsMapper : IMapper<DeviceDetails, DeviceDetailsEntity>  {
     override fun map(input: DeviceDetails): DeviceDetailsEntity = DeviceDetailsEntity(
         cpu = input.cpu,
         camera = input.camera,

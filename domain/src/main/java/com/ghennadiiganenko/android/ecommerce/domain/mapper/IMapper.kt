@@ -1,5 +1,5 @@
 package com.ghennadiiganenko.android.ecommerce.domain.mapper
 
-interface Mapper<I, O> {
+interface IMapper<I, O> {
     fun map(input: I): O
 }

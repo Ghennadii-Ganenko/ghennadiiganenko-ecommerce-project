@@ -19,8 +19,6 @@ class CartDevicesAdapter(
     private val view: View
 ) : ListAdapter<DeviceDetailsEntity, RecyclerView.ViewHolder>(ItemsDiffCallback()) {
 
-    private val textHelper = TextHelper()
-
     private class ItemsDiffCallback : DiffUtil.ItemCallback<DeviceDetailsEntity>() {
         override fun areItemsTheSame(
             oldItem: DeviceDetailsEntity,
@@ -42,7 +40,7 @@ class CartDevicesAdapter(
 
                 Picasso.get().load(item.images[0]).into(deviceImage)
                 deviceNameTextview.text = item.title
-                devicePriceTextview.text = textHelper.addDollarSign(item.price.toString())
+                devicePriceTextview.text = TextHelper.addDollarSign(item.price.toString())
                 amountTextview.text = "1"
             }
         }

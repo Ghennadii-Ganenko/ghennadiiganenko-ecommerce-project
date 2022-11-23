@@ -10,19 +10,18 @@ import com.ghennadiiganenko.android.ecommerce.domain.models.DeviceEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val deviceRepository: DeviceRepository, private val deviceDetailsRepository: DeviceDetailsRepository) : ViewModel() {
+class MainViewModel(
+    private val deviceRepository: DeviceRepository,
+    private val deviceDetailsRepository: DeviceDetailsRepository,
+) : ViewModel() {
 
     val devicesList: MutableLiveData<DeviceEntity> = deviceRepository.devicesList
-
     val deviceDetailsList: MutableLiveData<DeviceDetailsEntity> = deviceDetailsRepository.devicesList
-
     val devicesCount: MutableLiveData<Int> = MutableLiveData(0)
 
     fun addDevicesCount() {
         devicesCount.value = devicesCount.value?.plus(1)
     }
-
-    fun getDevicesCount() = devicesCount.value
 
     fun getDevicesList() {
         viewModelScope.launch(Dispatchers.IO) {

@@ -5,7 +5,7 @@ import com.ghennadiiganenko.android.ecommerce.data.DeviceDetailsData
 import retrofit2.Call
 import retrofit2.http.GET
 
-interface RetrofitService {
+interface IRetrofitService {
     @GET("654bd15e-b121-49ba-a588-960956b15175")
     fun getDevices(): Call<DeviceData>
 

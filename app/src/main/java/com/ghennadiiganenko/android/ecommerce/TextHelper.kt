@@ -7,26 +7,21 @@ import android.text.style.UnderlineSpan
 import java.text.DecimalFormat
 
 
-class TextHelper {
-    fun strikeText(text: String?): SpannableString {
-        var text = text
-        if (text == null) text = ""
-        val str = SpannableString(text)
-        str.setSpan(StrikethroughSpan(), 0, str.length, Spanned.SPAN_PARAGRAPH)
-        return str
-    }
+object TextHelper {
 
-    fun underlineText(text: String?): SpannableString {
-        var text = text
-        if (text == null) text = ""
-        val str = SpannableString(text)
-        str.setSpan(UnderlineSpan(), 0, str.length, Spanned.SPAN_PARAGRAPH)
-        return str
-    }
+    fun strikeText(text: String) =
+        SpannableString(text).apply {
+            setSpan(StrikethroughSpan(), 0, length, Spanned.SPAN_PARAGRAPH)
+        }
 
-    fun decimalFormat(v: Float): String = DecimalFormat("@@##").format(v)
+//    fun underlineText(text: String) =
+//        SpannableString(text).apply {
+//            setSpan(UnderlineSpan(), 0, length, Spanned.SPAN_PARAGRAPH)
+//        }
+//
+//    fun decimalFormat(v: Float) = DecimalFormat("@@##").format(v)
 
-    fun addDollarSign(text: String?): String = "$$text"
+    fun addDollarSign(text: String) = "$$text"
 
-    fun addGbText(text: String?): String = "$text GB"
+    fun addGbText(text: String) = "$text GB"
 }
